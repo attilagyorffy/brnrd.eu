@@ -2,7 +2,9 @@ w3-personal-blog/*
 output/*
 output
 plugins/*
-favicon.zip
+plugins
+*.zip
+*.tgz
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
