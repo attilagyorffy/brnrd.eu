@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    {# https redirect #}
+    {% if HTTPS_REDIRECT %}
+    <script type="text/javascript">
+        if (window.location.protocol != "https:") {
+            window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+        }
+    </script>
+    {% endif %}
+    {# /https redirect #}
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="robots" content="index, follow"/>
+    <meta name="keywords" content="{% block keywords %}{{ KEYWORDS }}{%endblock%}" />
+    {% block extra_meta %}{% endblock %}
+    <meta property="og:title" content="{% block ogtitle %}{{ SITENAME }}{%endblock%}"/>
+    <meta property="og:url" content="{% block ogurl %}{{ SITEURL }}{%endblock%}"/>
+    <meta property="og:site_name" content="{{ SITENAME }}"/>
+    <meta property="og:type" content="{% block ogtype %}website{%endblock%}"/>
+    <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
+    <meta property="og:description" content="{% block ogdescription %}{% endblock %}" />
+
+    <link rel="canonical" href="{% block canonicalurl %}{{ SITEURL }}{%endblock%}" />
+
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+
+    <link rel="stylesheet" type="text/css" href="/theme/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygment.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/social-likes_flat.css" />
+
+    <script type="text/javascript" src="/theme/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/theme/js/social-likes.min.js"></script>
+
+    {% block script %}{% endblock %}
+
+    {% if SHARETHIS_PUB_KEY %}
+    <script type="text/javascript" src="//w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "{{ SHARETHIS_PUB_KEY }}",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+    {% endif %}
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body id="index">
+    {% include 'github.html' %}
+    {% include 'header_menu.html' %}
+
+    <div class="content">
+        <div class="container">
+            {% block container %}
+                <div class="content-grids">
+                    {% block content_container %}
+                        <div class="col-md-8 content-main">
+                            {% block content %}{% endblock %}
+                        </div>
+
+                        <div class="col-md-4 content-right">
+                            {% block sidebar %}{% endblock %}
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>
+              <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/img/CC-BY-4.0.png" /></a>This work is <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a> licensed.
+            </p>
+        </div>
+    </div>
+
+{% include 'analytics.html' %}
+{% include 'piwik.html' %}
+{% include 'disqus_script.html' %}
+</body>
+</html>
