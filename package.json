@@ -1,0 +1,26 @@
+{
+  "name": "brnrd.eu",
+  "version": "1.0.0",
+  "description": "Source for my [Pelican](http://blog.getpelican.com/) website",
+  "main": "index.js",
+  "dependencies": {
+    "connect": "^3.4.1"
+  },
+  "devDependencies": {
+    "connect": "^3.4.1",
+    "serve-static": "^1.11.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attilagyorffy/brnrd.eu.git"
+  },
+  "author": "Attila Györffy <attila@attilagyorffy.com> (http://www.attilagyorffy.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attilagyorffy/brnrd.eu/issues"
+  },
+  "homepage": "https://github.com/attilagyorffy/brnrd.eu#readme"
+}
