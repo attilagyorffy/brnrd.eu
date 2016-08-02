@@ -69,5 +69,8 @@ Vagrant.configure("2") do |config|
     apt-get update
     apt-get install -y python-pip
     pip install pelican markdown
+
+    grep -q "LC_ALL=en_US.UTF-8" /home/vagrant/.bashrc; [ $? -eq 0 ] && echo "Bash profile up to date" || echo 'export LC_ALL=en_US.UTF-8' | tee -a /home/vagrant/.bashrc
+    grep -q "LANG=en_US.UTF-8" /home/vagrant/.bashrc; [ $? -eq 0 ] && echo "Bash profile up to date" || echo 'export LANG=en_US.UTF-8' | tee -a /home/vagrant/.bashrc
   SHELL
 end
